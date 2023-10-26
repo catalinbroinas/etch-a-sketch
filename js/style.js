@@ -1,5 +1,6 @@
-function createGrid() {
-    const container = document.querySelector('.container');
+function createGrid() 
+{
+    const grid = document.querySelector('.grid');
     const rows = [];
     const cols = [];
     
@@ -7,7 +8,7 @@ function createGrid() {
     {
         rows[i] = document.createElement('div');
         rows[i].classList.add('row');
-        container.appendChild(rows[i]);
+        grid.appendChild(rows[i]);
 
         for (let j = 0; j < 16; j++)
         {
@@ -16,8 +17,18 @@ function createGrid() {
             rows[i].appendChild(cols[j]);
         }
     }
-
-
 }
 
-window.addEventListener('load', createGrid);
+function penEffect()
+{
+    createGrid();
+
+    const cells = document.querySelectorAll('.col');
+    for(let cell of cells)
+    {
+        cell.addEventListener('mouseover', () => {
+            cell.classList.add('pen');
+        });
+    }
+}
+window.addEventListener('load', penEffect);
