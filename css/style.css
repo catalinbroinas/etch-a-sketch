@@ -19,34 +19,49 @@ body
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2rem 0;
+    margin: 1rem 0 0;
 }
 .grid
 {
-    margin: 2rem;
+    background-color: red;
+    width: 80vw;
+    margin: 0;
     display: flex;
     flex-flow: column wrap;
 }
 .grid .row
 {
+    background-color: green;
+    width: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 }
 .grid .col
 {
     width: 3rem;
     height: 3rem;
-    background-color: aqua;
-    border: 0.15rem solid gray;
+    flex: 1 1 3rem;
+    background-color: #E3F2FD;
+    border: 0.1rem solid lightgray;
 }
 .grid .pen
 {
-    background-color: aquamarine;
+    background-color: #64B5F6;
+}
+
+/* Typography */
+.title
+{
+    text-align: center;
+    font-size: 3rem;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    margin-bottom: 2rem;
 }
 
 /* Components */
 .btn
 {
+    margin-bottom: 2rem;
     background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
     border-radius: 0.5rem;
     border-style: none;
