@@ -45,10 +45,18 @@ function clearGrid(numRows, numCols)
     }
 }
 
+function newGrid(numRows, numCols)
+{
+    numRows = prompt('Enter the number of rows for the new grid.');
+    numCols = prompt('Enter the number of columns for the new grid.');
+    penEffect(parseInt(numRows), parseInt(numCols));
+}
+
 window.addEventListener('load', (numRows, numCols) => {
     penEffect(16, 16);
 });
 const changeGrid = document.querySelector('#change-grid');
 changeGrid.addEventListener('click', (numRows, numCols) => {
     clearGrid(numRows, numCols);
+    newGrid();
 });
