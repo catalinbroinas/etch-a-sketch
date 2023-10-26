@@ -47,8 +47,18 @@ function clearGrid(numRows, numCols)
 
 function newGrid(numRows, numCols)
 {
-    numRows = prompt('Enter the number of rows for the new grid.');
-    numCols = prompt('Enter the number of columns for the new grid.');
+    numRows = prompt('Enter the number of rows for the new grid. (max 20)');
+    numCols = prompt('Enter the number of columns for the new grid. (max 20)');
+
+    if(numRows > 20)
+    {
+        numRows = 20;
+    }
+    if(numCols > 20)
+    {
+        numCols = 20;
+    }
+
     penEffect(parseInt(numRows), parseInt(numCols));
 }
 
