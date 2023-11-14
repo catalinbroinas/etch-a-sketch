@@ -1,5 +1,7 @@
 const eraser = document.querySelector('#eraser-grid');
 const pen = document.querySelector('#pen-grid');
+const changeGrid = document.querySelector('#change-grid');
+const clear = document.querySelector('#clear-grid');
 
 function createGrid(size) 
 {
@@ -101,22 +103,26 @@ function newGrid(size)
         size = 100;
     }
 
+    pen.classList.add('active');
+    eraser.classList.remove('active');
+
     penEffect(parseInt(size));
 }
 
 window.addEventListener('load', (size) => {
     penEffect(16);
 });
-const changeGrid = document.querySelector('#change-grid');
 changeGrid.addEventListener('click', (size) => {
     removeGrid(size);
     newGrid();
 });
-const clear = document.querySelector('#clear-grid');
 eraser.addEventListener('click', () => {
     eraserGrid('eraser');
 });
 pen.addEventListener('click', () => {
     eraserGrid('pen');
 });
-clear.addEventListener('click', clearGird);
+clear.addEventListener('click', () => {
+    clearGird();
+    eraserGrid('pen');
+});
