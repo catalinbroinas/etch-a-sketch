@@ -53,7 +53,16 @@ body
 {
     background-color: #64B5F6;
 }
-
+.group-buttons
+{
+    /* background-color: red; */
+    display: flex;
+    flex-flow: column;
+}
+.set-size
+{
+    margin-bottom: 1rem;
+}
 /* Typography */
 .page-title
 {
@@ -88,4 +97,23 @@ body
 {
   box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
   transition-duration: .1s;
+}
+
+.grid-size
+{
+    text-align: center;
+}
+.input-size
+{
+    font-size: 2rem;
+    font-weight: bolder;
+    text-align: center;
+    width: 6rem;
+    padding: 0.5rem 0;
+}
+.label-size
+{
+    font-size: 2rem;
+    margin-right: 1rem;
+    font-weight: bolder;
 }

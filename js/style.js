@@ -47,7 +47,8 @@ function clearGrid(size)
 
 function newGrid(size)
 {
-    size = prompt('Enter the size of the grid. (max 100)');
+    const myInput = document.querySelector('#input-size');
+    size = myInput.value;
 
     if(size > 100)
     {
