@@ -32,6 +32,15 @@ function penEffect(size)
     }
 }
 
+function clearGird()
+{
+    const cells = document.querySelectorAll('.col');
+    for(let cell of cells)
+    {
+        cell.classList.remove('pen');
+    }
+}
+
 function clearGrid(size)
 {
     createGrid(size);
@@ -66,3 +75,5 @@ changeGrid.addEventListener('click', (size) => {
     clearGrid(size);
     newGrid();
 });
+const clear = document.querySelector('#clear-grid');
+clear.addEventListener('click', clearGird);
