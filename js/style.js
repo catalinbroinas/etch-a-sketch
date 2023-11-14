@@ -1,16 +1,16 @@
-function createGrid(numRows, numCols) 
+function createGrid(size) 
 {
     const grid = document.querySelector('.grid');
     const rows = [];
     const cols = [];
     
-    for (let i = 0; i < numRows; i++)
+    for (let i = 0; i < size; i++)
     {
         rows[i] = document.createElement('div');
         rows[i].classList.add('row');
         grid.appendChild(rows[i]);
 
-        for (let j = 0; j < numCols; j++)
+        for (let j = 0; j < size; j++)
         {
             cols[j] = document.createElement('div');
             cols[j].classList.add('col');
@@ -19,9 +19,9 @@ function createGrid(numRows, numCols)
     }
 }
 
-function penEffect(numRows, numCols)
+function penEffect(size)
 {
-    createGrid(numRows, numCols);
+    createGrid(size);
 
     const cells = document.querySelectorAll('.col');
     for(let cell of cells)
@@ -32,9 +32,9 @@ function penEffect(numRows, numCols)
     }
 }
 
-function clearGrid(numRows, numCols)
+function clearGrid(size)
 {
-    createGrid(numRows, numCols);
+    createGrid(size);
 
     const rows = document.querySelectorAll('.row');
     const grid = document.querySelector('.grid');
@@ -45,28 +45,23 @@ function clearGrid(numRows, numCols)
     }
 }
 
-function newGrid(numRows, numCols)
+function newGrid(size)
 {
-    numRows = prompt('Enter the number of rows for the new grid. (max 20)');
-    numCols = prompt('Enter the number of columns for the new grid. (max 20)');
+    size = prompt('Enter the size of the grid. (max 100)');
 
-    if(numRows > 100)
+    if(size > 100)
     {
-        numRows = 100;
-    }
-    if(numCols > 100)
-    {
-        numCols = 100;
+        size = 100;
     }
 
-    penEffect(parseInt(numRows), parseInt(numCols));
+    penEffect(parseInt(size));
 }
 
-window.addEventListener('load', (numRows, numCols) => {
-    penEffect(16, 16);
+window.addEventListener('load', (size) => {
+    penEffect(16);
 });
 const changeGrid = document.querySelector('#change-grid');
-changeGrid.addEventListener('click', (numRows, numCols) => {
-    clearGrid(numRows, numCols);
+changeGrid.addEventListener('click', (size) => {
+    clearGrid(size);
     newGrid();
 });
