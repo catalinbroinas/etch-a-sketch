@@ -16,19 +16,22 @@ body
 /* Layout */
 .container
 {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    margin: 2rem;
 }
 .grid
 {
-    width: 400px;
-    height: 400px;
-    margin: 0;
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-flow: column nowrap;
+}
+.grid:hover
+{
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
 }
 .grid .row
 {
@@ -52,12 +55,16 @@ body
 }
 
 /* Typography */
-.title
+.page-title
 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 4rem;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
-    margin: 2rem 0 3rem;
+    position: fixed;
+    width: 100%;
+    top: 2rem;
+    color: #E3F2FD;
+    font-weight: 900;
 }
 
 /* Components */
