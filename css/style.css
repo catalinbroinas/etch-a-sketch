@@ -17,32 +17,34 @@ body
 .container
 {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 1rem 0 2rem;
+    gap: 2rem;
+    margin: 2rem;
 }
 .grid
 {
-    background-color: red;
-    width: 80vw;
+    width: 400px;
+    height: 400px;
     margin: 0;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
 }
 .grid .row
 {
-    background-color: green;
     width: 100%;
+    max-height: 100%;
+    flex: 1;
     display: flex;
     flex-flow: row nowrap;
 }
 .grid .col
 {
-    width: 3rem;
-    height: 3rem;
-    flex: 1 1 3rem;
+    width: 1rem;
+    height: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
     background-color: #E3F2FD;
-    border: 0.1rem solid lightgray;
 }
 .grid .pen
 {
@@ -55,7 +57,7 @@ body
     text-align: center;
     font-size: 3rem;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
-    margin-bottom: 2rem;
+    margin: 2rem 0 3rem;
 }
 
 /* Components */

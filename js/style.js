@@ -50,13 +50,13 @@ function newGrid(numRows, numCols)
     numRows = prompt('Enter the number of rows for the new grid. (max 20)');
     numCols = prompt('Enter the number of columns for the new grid. (max 20)');
 
-    if(numRows > 20)
+    if(numRows > 100)
     {
-        numRows = 20;
+        numRows = 100;
     }
-    if(numCols > 20)
+    if(numCols > 100)
     {
-        numCols = 20;
+        numCols = 100;
     }
 
     penEffect(parseInt(numRows), parseInt(numCols));
