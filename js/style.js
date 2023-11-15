@@ -3,6 +3,10 @@ const pen = document.querySelector('#pen-grid');
 const changeGrid = document.querySelector('#change-grid');
 const clear = document.querySelector('#clear-grid');
 const inputSize = document.querySelector('#input-size');
+const colorPen = document.querySelector('#color-pen');
+const colorPen2 = document.querySelector('#color-pen2');
+
+let bgCol = '#64B5F6';
 
 function createGrid(size) 
 {
@@ -33,7 +37,7 @@ function penEffect(size)
     for(let cell of cells)
     {
         cell.addEventListener('mouseover', () => {
-            cell.classList.add('pen');
+            cell.style.cssText = `background-color: ${bgCol};`;
         });
     }
 }
@@ -43,7 +47,7 @@ function clearGird()
     const cells = document.querySelectorAll('.col');
     for(let cell of cells)
     {
-        cell.classList.remove('pen');
+        cell.removeAttribute('style');
     }
 }
 
@@ -59,7 +63,7 @@ function eraserGrid(tool)
             for(let cell of cells)
             {
             cell.addEventListener('mouseover', () => {
-                cell.classList.add('pen');
+                cell.style.cssText = `background-color: ${bgCol};`;
             });
             }
             btnActive = pen;
@@ -69,7 +73,7 @@ function eraserGrid(tool)
             for(let cell of cells)
             {
             cell.addEventListener('mouseover', () => {
-                cell.classList.remove('pen');
+                cell.removeAttribute('style');
             });
             }
             btnActive = eraser;
@@ -96,13 +100,7 @@ function removeGrid(size)
 
 function newGrid(size)
 {
-    const myInput = document.querySelector('#input-size');
-    size = myInput.value;
-
-    if(size > 100)
-    {
-        size = 100;
-    }
+    size = inputSize.value;
 
     pen.classList.add('active');
     eraser.classList.remove('active');
@@ -140,3 +138,9 @@ clear.addEventListener('click', () => {
     eraserGrid('pen');
 });
 inputSize.addEventListener('change', verifySize);
+colorPen.addEventListener('click', () => {
+    bgCol = '#CC0000';
+});
+colorPen2.addEventListener('click', () => {
+    bgCol = 'blue';
+});
