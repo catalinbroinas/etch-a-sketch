@@ -2,6 +2,7 @@ const eraser = document.querySelector('#eraser-grid');
 const pen = document.querySelector('#pen-grid');
 const changeGrid = document.querySelector('#change-grid');
 const clear = document.querySelector('#clear-grid');
+const inputSize = document.querySelector('#input-size');
 
 function createGrid(size) 
 {
@@ -109,6 +110,18 @@ function newGrid(size)
     penEffect(parseInt(size));
 }
 
+function verifySize()
+{
+    if(inputSize.value > 0 && inputSize.value < 101)
+    {
+        changeGrid.removeAttribute('disabled', '');
+    }
+    else
+    {
+        changeGrid.setAttribute('disabled', '');
+    }
+}
+
 window.addEventListener('load', (size) => {
     penEffect(16);
 });
@@ -126,3 +139,4 @@ clear.addEventListener('click', () => {
     clearGird();
     eraserGrid('pen');
 });
+inputSize.addEventListener('change', verifySize);
