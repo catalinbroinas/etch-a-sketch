@@ -3,10 +3,9 @@ const pen = document.querySelector('#pen-grid');
 const changeGrid = document.querySelector('#change-grid');
 const clear = document.querySelector('#clear-grid');
 const inputSize = document.querySelector('#input-size');
-const colorPen = document.querySelector('#color-pen');
-const colorPen2 = document.querySelector('#color-pen2');
+const penColorButton = document.querySelector('#pen-color');
 
-let bgCol = '#64B5F6';
+let penColor = penColorButton.value;
 
 function createGrid(size) 
 {
@@ -37,7 +36,7 @@ function penEffect(size)
     for(let cell of cells)
     {
         cell.addEventListener('mouseover', () => {
-            cell.style.cssText = `background-color: ${bgCol};`;
+            cell.style.cssText = `background-color: ${penColor};`;
         });
     }
 }
@@ -63,7 +62,7 @@ function eraserGrid(tool)
             for(let cell of cells)
             {
             cell.addEventListener('mouseover', () => {
-                cell.style.cssText = `background-color: ${bgCol};`;
+                cell.style.cssText = `background-color: ${penColor};`;
             });
             }
             btnActive = pen;
@@ -138,9 +137,6 @@ clear.addEventListener('click', () => {
     eraserGrid('pen');
 });
 inputSize.addEventListener('change', verifySize);
-colorPen.addEventListener('click', () => {
-    bgCol = '#CC0000';
-});
-colorPen2.addEventListener('click', () => {
-    bgCol = 'blue';
+penColorButton.addEventListener('change', (event) => {
+    penColor = event.target.value;
 });

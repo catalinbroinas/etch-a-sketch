@@ -130,3 +130,24 @@ body
     margin-right: 1rem;
     font-weight: bolder;
 }
+.pen-color 
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    margin: 0 auto 2rem;
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border: none;
+    cursor: pointer;
+  }
+  .pen-color::-webkit-color-swatch 
+  {
+    border-radius: 50%;
+  }
+  .pen-color::-moz-color-swatch 
+  {
+    border-radius: 50%;
+  }
