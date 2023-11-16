@@ -139,4 +139,10 @@ clear.addEventListener('click', () => {
 inputSize.addEventListener('change', verifySize);
 penColorButton.addEventListener('change', (event) => {
     penColor = event.target.value;
+    if(eraser.classList.contains('active'))
+    {
+        eraser.classList.remove('active');
+        pen.classList.add('active');
+        eraserGrid('pen'); 
+    }
 });
