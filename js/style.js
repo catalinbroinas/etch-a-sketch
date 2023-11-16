@@ -50,7 +50,7 @@ function clearGird()
     }
 }
 
-function eraserGrid(tool)
+function toolUsed(tool)
 {
     const cells = document.querySelectorAll('.col');
     let btnActive = pen;
@@ -127,14 +127,14 @@ changeGrid.addEventListener('click', (size) => {
     newGrid();
 });
 eraser.addEventListener('click', () => {
-    eraserGrid('eraser');
+    toolUsed('eraser');
 });
 pen.addEventListener('click', () => {
-    eraserGrid('pen');
+    toolUsed('pen');
 });
 clear.addEventListener('click', () => {
     clearGird();
-    eraserGrid('pen');
+    toolUsed('pen');
 });
 inputSize.addEventListener('change', verifySize);
 penColorButton.addEventListener('change', (event) => {
@@ -143,6 +143,6 @@ penColorButton.addEventListener('change', (event) => {
     {
         eraser.classList.remove('active');
         pen.classList.add('active');
-        eraserGrid('pen'); 
+        toolUsed('pen'); 
     }
 });
