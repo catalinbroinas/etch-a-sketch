@@ -142,12 +142,12 @@ body
     height: 5rem;
     border: none;
     cursor: pointer;
-  }
-  .pen-color::-webkit-color-swatch 
-  {
+}
+.pen-color::-webkit-color-swatch 
+{
     border-radius: 50%;
-  }
-  .pen-color::-moz-color-swatch 
-  {
+}
+.pen-color::-moz-color-swatch 
+{
     border-radius: 50%;
-  }
+}
