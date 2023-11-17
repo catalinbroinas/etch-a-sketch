@@ -1,13 +1,10 @@
 const grid = document.querySelector('.grid');
-
 const eraserButton = document.querySelector('#eraser-grid');
 const penButton = document.querySelector('#pen-grid');
 const clearButton = document.querySelector('#clear-grid');
-
 const inputSize = document.querySelector('#input-size');
 const penColorInput = document.querySelector('#pen-color');
 const sizeGirdRange = document.querySelector('#size-grid');
-
 const sizeGridLabel = document.querySelector('#label-size-grid');
 
 let penColor = penColorInput.value;
@@ -96,7 +93,6 @@ function toolUsed(tool)
 function removeGrid()
 {
     const rows = document.querySelectorAll('.row');
-
     for (let row of rows)
     {
         grid.removeChild(row);
@@ -122,7 +118,6 @@ sizeGirdRange,addEventListener('change', (event) => {
         removeGrid();
         createGrid(sizeGrid);
         penEffect();
-        console.log(event.target.value);
     }
 });
 eraserButton.addEventListener('click', () => {
@@ -143,5 +138,4 @@ penColorInput.addEventListener('input', (event) => {
         penButton.classList.add('active');
         toolUsed('pen'); 
     }
-    console.log(event.target.value);
 });
