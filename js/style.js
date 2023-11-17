@@ -1,25 +1,30 @@
 const eraserButton = document.querySelector('#eraser-grid');
 const penButton = document.querySelector('#pen-grid');
-const changeGridButton = document.querySelector('#change-grid');
 const clearButton = document.querySelector('#clear-grid');
 const inputSize = document.querySelector('#input-size');
 const penColorInput = document.querySelector('#pen-color');
+const sizeGirdRange = document.querySelector('#size-grid');
+const sizeGridLabel = document.querySelector('#label-size-grid');
 
 let penColor = penColorInput.value;
+let sizeGrid = sizeGirdRange.value;
 
-function createGrid(size) 
+inputSize.value = sizeGrid;
+sizeGridLabel.textContent = `${sizeGirdRange.value}x${sizeGirdRange.value}`;
+
+function createGrid(setGridSize) 
 {
     const grid = document.querySelector('.grid');
     const rows = [];
     const cols = [];
     
-    for (let i = 0; i < size; i++)
+    for (let i = 0; i < setGridSize; i++)
     {
         rows[i] = document.createElement('div');
         rows[i].classList.add('row');
         grid.appendChild(rows[i]);
 
-        for (let j = 0; j < size; j++)
+        for (let j = 0; j < setGridSize; j++)
         {
             cols[j] = document.createElement('div');
             cols[j].classList.add('col');
@@ -28,9 +33,9 @@ function createGrid(size)
     }
 }
 
-function penEffect(size)
+function penEffect(setGridSize)
 {
-    createGrid(size);
+    createGrid(setGridSize);
 
     const cells = document.querySelectorAll('.col');
     for(let cell of cells)
@@ -84,9 +89,9 @@ function toolUsed(tool)
     btnInActive.classList.remove('active');
 }
 
-function removeGrid(size)
+function removeGrid(setGridSize)
 {
-    createGrid(size);
+    createGrid(setGridSize);
 
     const rows = document.querySelectorAll('.row');
     const grid = document.querySelector('.grid');
@@ -97,30 +102,42 @@ function removeGrid(size)
     }
 }
 
-function newGrid(size)
+function newGrid(setGridSize)
 {
-    size = inputSize.value;
-
     penButton.classList.add('active');
     eraserButton.classList.remove('active');
 
-    penEffect(parseInt(size));
+    penEffect(parseInt(setGridSize));
 }
 
-function verifySize()
+function verifySize(inputValue)
 {
-    (inputSize.value > 0 && inputSize.value < 101) 
-        ? changeGridButton.removeAttribute('disabled', '') 
-        : changeGridButton.setAttribute('disabled', '');
+    (inputValue > 0 && inputValue < 101) ? true : false;
 }
 
-window.addEventListener('load', (size) => {
-    penEffect(16);
+window.addEventListener('load', () => {
+    penEffect(sizeGrid);
 });
-changeGridButton.addEventListener('click', (size) => {
-    removeGrid(size);
-    newGrid();
+sizeGirdRange,addEventListener('change', (event) => {
+    sizeGrid = event.target.value;
+    sizeGridLabel.textContent = `${event.target.value}x${event.target.value}`;
+    inputSize.value = sizeGrid;
+    removeGrid(sizeGrid);
+    newGrid(sizeGrid);
+    console.log(event.target.value);
 });
+inputSize.addEventListener('change', (event) => {
+    sizeGrid = event.target.value;
+    if(verifySize(sizeGrid))
+    {
+        sizeGridLabel.textContent = `${event.target.value}x${event.target.value}`;
+        sizeGirdRange.value = sizeGrid;
+        removeGrid(sizeGrid);
+        newGrid(sizeGrid);
+        console.log(event.target.value);
+    }
+});
+// inputSize.addEventListener('change', verifySize);
 eraserButton.addEventListener('click', () => {
     toolUsed('eraser');
 });
@@ -131,8 +148,7 @@ clearButton.addEventListener('click', () => {
     clearGird();
     toolUsed('pen');
 });
-inputSize.addEventListener('change', verifySize);
-penColorInput.addEventListener('change', (event) => {
+penColorInput.addEventListener('input', (event) => {
     penColor = event.target.value;
     if(eraserButton.classList.contains('active'))
     {
@@ -140,4 +156,5 @@ penColorInput.addEventListener('change', (event) => {
         penButton.classList.add('active');
         toolUsed('pen'); 
     }
+    console.log(event.target.value);
 });

@@ -16,8 +16,11 @@
     <div class="container">
         <!-- Buttons -->
         <div class="group-buttons">
-            <!-- Color -->
-            <input type="color" name="pen-color" id="pen-color" class="pen-color" value="#64B5F6">
+            <form id="color-picker" name="color-picker">
+                <!-- Color -->
+                <label for="pen-color">Color</label>
+                <input type="color" name="pen-color" id="pen-color" class="pen-color" value="#64B5F6">
+            </form>
             <!-- Pen -->
             <button id="pen-grid" class="btn active" role="button">Pen</button>
             <!-- Eraser -->
@@ -25,15 +28,16 @@
             <!-- Clear -->
             <button id="clear-grid" class="btn" role="button">Clear</button>
             <!-- Grid Size -->
-            <form class="grid-size">
+            <form id="grid-size" class="grid-size" name="grid-size">
                 <div class="set-size">
                     <label class="label-size" for="input-size">Grid size:</label>
                     <input type="number" name="input-size" id="input-size" class="input-size" step="1" min="1"
                         max="100" value="16">
                 </div>
-                <button id="change-grid" class="btn" role="button" type="button">Apply</button>
+                <!-- Grid Size -->
+                <input type="range" name="size-grid" id="size-grid" class="size-grid" value="16" min="1" max="100">
+                <label for="size-grid" id="label-size-grid"></label>
             </form>
-            <!-- Grid Size -->
         </div>
         <!-- Buttons -->
         <!-- grid -->
