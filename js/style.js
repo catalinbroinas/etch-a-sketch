@@ -31,12 +31,13 @@ function createGrid(setGridSize)
             rows[i].appendChild(cols[j]);
         }
     }
+
+    penButton.classList.add('active');
+    eraserButton.classList.remove('active');
 }
 
 function penEffect(setGridSize)
 {
-    createGrid(setGridSize);
-
     const cells = document.querySelectorAll('.col');
     for(let cell of cells)
     {
@@ -89,10 +90,8 @@ function toolUsed(tool)
     btnInActive.classList.remove('active');
 }
 
-function removeGrid(setGridSize)
+function removeGrid()
 {
-    createGrid(setGridSize);
-
     const rows = document.querySelectorAll('.row');
     const grid = document.querySelector('.grid');
 
@@ -102,20 +101,13 @@ function removeGrid(setGridSize)
     }
 }
 
-function newGrid(setGridSize)
-{
-    penButton.classList.add('active');
-    eraserButton.classList.remove('active');
-
-    penEffect(parseInt(setGridSize));
-}
-
 function verifySize(inputValue)
 {
     return (inputValue > 0 && inputValue < 101) ? true : false;
 }
 
 window.addEventListener('load', () => {
+    createGrid(sizeGrid);
     penEffect(sizeGrid);
 });
 sizeGirdRange,addEventListener('change', (event) => {
@@ -125,8 +117,9 @@ sizeGirdRange,addEventListener('change', (event) => {
         sizeGridLabel.textContent = `${event.target.value}x${event.target.value}`;
         inputSize.value = sizeGrid;
         sizeGirdRange.value = sizeGrid;
-        removeGrid(sizeGrid);
-        newGrid(sizeGrid);
+        removeGrid();
+        createGrid(sizeGrid);
+        penEffect(sizeGrid);
         console.log(event.target.value);
     }
 });
