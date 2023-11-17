@@ -111,10 +111,15 @@ body
     box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
     font-weight: bold;
 }
-
-.grid-size
+.size-grid
+{
+    margin-bottom: 0.5rem;
+}
+.label-size-grid
 {
     text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
 }
 .input-size
 {

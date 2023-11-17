@@ -112,7 +112,7 @@ function newGrid(setGridSize)
 
 function verifySize(inputValue)
 {
-    (inputValue > 0 && inputValue < 101) ? true : false;
+    return (inputValue > 0 && inputValue < 101) ? true : false;
 }
 
 window.addEventListener('load', () => {
@@ -120,24 +120,16 @@ window.addEventListener('load', () => {
 });
 sizeGirdRange,addEventListener('change', (event) => {
     sizeGrid = event.target.value;
-    sizeGridLabel.textContent = `${event.target.value}x${event.target.value}`;
-    inputSize.value = sizeGrid;
-    removeGrid(sizeGrid);
-    newGrid(sizeGrid);
-    console.log(event.target.value);
-});
-inputSize.addEventListener('change', (event) => {
-    sizeGrid = event.target.value;
     if(verifySize(sizeGrid))
     {
         sizeGridLabel.textContent = `${event.target.value}x${event.target.value}`;
+        inputSize.value = sizeGrid;
         sizeGirdRange.value = sizeGrid;
         removeGrid(sizeGrid);
         newGrid(sizeGrid);
         console.log(event.target.value);
     }
 });
-// inputSize.addEventListener('change', verifySize);
 eraserButton.addEventListener('click', () => {
     toolUsed('eraser');
 });
