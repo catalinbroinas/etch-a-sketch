@@ -1,9 +1,13 @@
+const grid = document.querySelector('.grid');
+
 const eraserButton = document.querySelector('#eraser-grid');
 const penButton = document.querySelector('#pen-grid');
 const clearButton = document.querySelector('#clear-grid');
+
 const inputSize = document.querySelector('#input-size');
 const penColorInput = document.querySelector('#pen-color');
 const sizeGirdRange = document.querySelector('#size-grid');
+
 const sizeGridLabel = document.querySelector('#label-size-grid');
 
 let penColor = penColorInput.value;
@@ -14,7 +18,6 @@ sizeGridLabel.textContent = `${sizeGirdRange.value}x${sizeGirdRange.value}`;
 
 function createGrid(setGridSize) 
 {
-    const grid = document.querySelector('.grid');
     const rows = [];
     const cols = [];
     
@@ -36,7 +39,7 @@ function createGrid(setGridSize)
     eraserButton.classList.remove('active');
 }
 
-function penEffect(setGridSize)
+function penEffect()
 {
     const cells = document.querySelectorAll('.col');
     for(let cell of cells)
@@ -93,7 +96,6 @@ function toolUsed(tool)
 function removeGrid()
 {
     const rows = document.querySelectorAll('.row');
-    const grid = document.querySelector('.grid');
 
     for (let row of rows)
     {
@@ -108,7 +110,7 @@ function verifySize(inputValue)
 
 window.addEventListener('load', () => {
     createGrid(sizeGrid);
-    penEffect(sizeGrid);
+    penEffect();
 });
 sizeGirdRange,addEventListener('change', (event) => {
     sizeGrid = event.target.value;
@@ -119,7 +121,7 @@ sizeGirdRange,addEventListener('change', (event) => {
         sizeGirdRange.value = sizeGrid;
         removeGrid();
         createGrid(sizeGrid);
-        penEffect(sizeGrid);
+        penEffect();
         console.log(event.target.value);
     }
 });
