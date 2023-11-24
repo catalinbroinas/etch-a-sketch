@@ -73,7 +73,6 @@ input[type="range"]::-moz-range-thumb
 }
 .group-buttons
 {
-    /* background-color: red; */
     display: flex;
     flex-flow: column;
 }
@@ -81,6 +80,7 @@ input[type="range"]::-moz-range-thumb
 {
     margin-bottom: 1rem;
 }
+
 /* Typography */
 .page-title
 {
@@ -201,4 +201,34 @@ input[type="range"]::-moz-range-thumb
     height: 2rem;
     width: 0.75rem;
     margin-top: -12px;    
+}
+
+/* Devices with resolutions under 1600x900 */
+@media only screen and (max-width: 1599px)
+{
+    .grid
+    {
+        width: 500px;
+        height: 500px;
+    }
+    .page-title
+    {
+        font-size: 3.5rem;
+        top: 1rem;
+    }
+    .btn
+    {
+        height: 3rem;
+        padding: 0 1.8rem;
+    }
+    .label-size, 
+    .input-size,
+    .label-size-grid
+    {
+        font-size: 1.5rem;
+    }
+    .input-size
+    {
+        width: 4rem;
+    }
 }
