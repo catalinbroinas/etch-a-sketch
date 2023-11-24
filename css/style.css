@@ -39,6 +39,8 @@ input[type="range"]::-moz-range-thumb
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    background: url('../img/floor.jpg') no-repeat;
+    background-size: cover;
 }
 .grid
 {
